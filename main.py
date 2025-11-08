@@ -53,7 +53,7 @@ loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.fc.parameters(), lr=1e-3)  # uniquement la dernière couche
 
 
-epochs = 50
+epochs = 30
 hist_train_acc = []
 hist_train_precision = []
 hist_train_recall = []
