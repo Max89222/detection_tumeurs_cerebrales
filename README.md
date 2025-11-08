@@ -1,8 +1,7 @@
 # Création d’une API pour la détection et l’analyse des tumeurs cérébrales
 **Auteur :** Max89222
 
-Ce projet vise à créer une API utilisant un réseau de neurones convolutif (CNN) grâce au transfer learning et à l'architecture ResNet dans le but de détecter la présence et le type de tumeurs cérébrales
-
+Ce projet vise à créer une API utilisant un réseau de neurones convolutif (CNN) grâce au transfer learning et à l'architecture ResNet dans le but de détecter la présence et le type de tumeurs cérébrales. J'ai également codé un CNN personnalisé (voir code commenté à la fin du fichier `main.py`) à l'aide du framework PyTorch pour ceux qui souhaiteraient rentrer plus dans le "coeur" du CNN. Il est important de savoir que l'architecture utilisant le transfer learning et notamment Resnet18 s'est avéré plus efficace dans ce cas là.
 ---
 
 ## 1) Structure et utilité des fichiers
