@@ -26,14 +26,6 @@ pipeline = transforms.Compose([
 train_set = ImageFolder(root='Training/', transform=pipeline)
 test_set = ImageFolder(root='Testing/', transform=pipeline)
 
-
-labels = []
-for i in test_set:
-    labels.append(i[1])
-labels = np.array(labels)
-print(np.unique(labels, return_counts=True))    
-
-
 train_loader = DataLoader(train_set, batch_size=32, shuffle=True)
 test_loader = DataLoader(test_set, batch_size=32, shuffle=False)
 

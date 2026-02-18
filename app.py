@@ -9,6 +9,7 @@ from torchmetrics import Accuracy
 from torchinfo import summary
 from PIL import Image
 from flask import Flask, request, jsonify
+from torchvision import models
 
 
 app = Flask(__name__)
@@ -16,6 +17,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def submit_photo():
     file = request.files['file']
+    """
     class detection_tumeur(nn.Module):
         def __init__(self, input_shape, hidden_shape, output_shape):
             super().__init__()
@@ -51,9 +53,10 @@ def submit_photo():
         def forward(self, X):
             return self.layer3(self.layer2(self.layer1(X)))
         
-
-    model = detection_tumeur(3, 8, 4)
-    model.load_state_dict(torch.load('model_save_detec_tumeur'))
+"""
+    model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
+    model.fc = nn.Linear(model.fc.in_features, 4)
+    model.load_state_dict(torch.load('model_save_detec_tumeur', map_location=torch.device('cpu')))
 
     image = Image.open(file).convert('RGB')
     resize_fn = transforms.Resize((512, 512))
@@ -74,4 +77,4 @@ def submit_photo():
 # {'glioma': 0, 'meningioma': 1, 'notumor': 2, 'pituitary': }
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=8510)
